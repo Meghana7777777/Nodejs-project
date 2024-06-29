@@ -1,0 +1,35 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js v18.16.0
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.16.0'
+
+      - name: Check Nx Version
+        run: npx nx --version
+
+      - name: Check Node Version
+        run: node -v
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Reset Nx
+        run: npx nx reset
+
+      - name: Build Backend
+        run: npx nx run services-common:build
