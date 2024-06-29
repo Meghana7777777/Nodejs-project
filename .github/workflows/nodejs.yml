@@ -19,8 +19,11 @@ jobs:
         with:
           node-version: '18.16.0'
 
+      - name: Add Nx to PATH
+        run: echo "/home/git-user/.npm/_npx/973fb08ee51bb939/node_modules/nx/bin" >> $GITHUB_PATH
+
       - name: Check Nx Version
-        run: npx nx --version
+        run: nx --version
 
       - name: Check Node Version
         run: node -v
@@ -29,7 +32,8 @@ jobs:
         run: npm install
 
       - name: Reset Nx
-        run: npx nx reset
+        run: nx reset
 
       - name: Build Backend
-        run: npx nx run services-common:build
+        run: nx run services-common:build
+
