@@ -1,9 +1,6 @@
 name: Node.js CI
 
 on:
-  pushname: Node.js CI
-
-on:
   push:
     branches: [develop]
   pull_request:
@@ -47,5 +44,6 @@ jobs:
         run: pm2 start /var/www/nodejs-website/_work/Nodejs-project/Nodejs-project/dist/packages/services/common/main.js --name "sai-9000"
 
       - name: Check PM2 Process Status
-        run: pm2 status sai-9000   
+        run: pm2 status sai-9000
+ 
 
