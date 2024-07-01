@@ -41,7 +41,7 @@ jobs:
         run: nx run services-common:build
 
       - name: Build frontend
-        run: nx run ui:build
+        run: nx run ui:build --verbose
 
       - name: Copy Frontend Build
         run: cp -r $(pwd)/dist/packages/ui/* /var/www/nodejs-website/levis
