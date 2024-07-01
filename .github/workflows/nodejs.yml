@@ -40,8 +40,8 @@ jobs:
       - name: Build Backend
         run: nx run services-common:build
 
-      - name: Start Application with PM2
-        run: pm2  sai2-9000
+      - name: restart Application with PM2
+        run: pm2 restart sai2-9000
 
       - name: Check PM2 Process Status
         run: pm2 status sai2-9000
