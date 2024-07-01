@@ -41,8 +41,7 @@ jobs:
         run: nx run services-common:build
 
       - name: Start Application with PM2
-        run: pm2 start /var/www/nodejs-website/_work/Nodejs-project/Nodejs-project/dist/packages/services/common/main.js --name "sai1-9000"
-
+        run: pm2  sai2-9000
 
       - name: Check PM2 Process Status
-        run: pm2 status sai1-9000
+        run: pm2 status sai2-9000
