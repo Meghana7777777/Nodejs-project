@@ -37,10 +37,13 @@ jobs:
       - name: Reset Nx
         run: npx nx reset
 
+      - name: Update Browserslist DB
+        run: npx update-browserslist-db@latest
+
       - name: Build Backend
         run: nx run services-common:build
 
-      - name: Build frontend
+      - name: Build Frontend
         run: nx run ui:build --verbose
 
       - name: Copy Frontend Build
