@@ -40,12 +40,14 @@ jobs:
       - name: Build Backend
         run: nx run services-common:build
 
-      - name: start Application with PM2
+      - name: Build frontend
+        run: nx run ui:build
+
+      - name: Copy Frontend Build
+        run: cp -r $(pwd)/dist/packages/ui/* /var/www/nodejs-website/levis
+
+      - name: Start Application with PM2
         run: pm2 restart sai-9000
 
       - name: Check PM2 Process Status
         run: pm2 status sai-9000
-
-        
- 
-
