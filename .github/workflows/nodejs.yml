@@ -37,20 +37,12 @@ jobs:
       - name: Reset Nx
         run: npx nx reset
 
-      - name: Update Browserslist DB
-        run: npx update-browserslist-db@latest
-
       - name: Build Backend
         run: nx run services-common:build
 
-      - name: Build Frontend
-        run: nx run ui:build --verbose
-
-      - name: Copy Frontend Build
-        run: cp -r $(pwd)/dist/packages/ui/* /var/www/nodejs-website/levis
-
       - name: Start Application with PM2
-        run: pm2 restart sai-9000
+        run: pm2 start /var/www/nodejs-website/_work/Nodejs-project/Nodejs-project/dist/packages/services/common/main.js --name "sai1-9000"
+
 
       - name: Check PM2 Process Status
-        run: pm2 status sai-9000
+        run: pm2 status sai1-9000
